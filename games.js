@@ -57,14 +57,24 @@ function checkAnswer(currentLevel) {
             }, 100);
         }
     } else {
-        endGame();
+        playSound("wrong");
+        $(document.body).addClass("game-over");
+        setTimeout(function () {
+            $(document.body).removeClass("game-over");
+        }, 200);
+        $("#level-title").text("Game Over, Press Any Key To Restart");
+        startOver();
     }
 }
 
-function endGame() {
-    $("#level-title").text("You have failed, refresh to try again!");
-
+function startOver() {
+    gamePattern = [];
+    userClickedPattern = [];
+    started = false;
+    level = 0;
 }
+
+
 
 
 
